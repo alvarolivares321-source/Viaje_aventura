@@ -27,6 +27,14 @@ CREATE TABLE PaqueteTuristico (
     precio DECIMAL(10,2)
 );
 
+CREATE TABLE PaqueteDestino (
+    Paquete_idPaquete INT,
+    Destino_idDestino INT,
+    PRIMARY KEY (Paquete_idPaquete, Destino_idDestino),
+    FOREIGN KEY (Paquete_idPaquete) REFERENCES PaqueteTuristico(idPaquete) ON DELETE CASCADE,
+    FOREIGN KEY (Destino_idDestino) REFERENCES Destino(idDestino)
+);
+
 CREATE TABLE Reserva (
     idReserva INT AUTO_INCREMENT PRIMARY KEY,
     Cliente_idCliente INT,
